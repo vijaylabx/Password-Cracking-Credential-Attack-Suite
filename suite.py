@@ -6,6 +6,8 @@ from modules.hash_extractor import HashExtractor
 from modules.cracker import PasswordCracker
 from modules.analyzer import PasswordAnalyzer
 from modules.reporter import SecurityReporter
+from modules.pwned_checker import PwnedChecker
+
 
 # Colors for Advanced CLI
 class Colors:
@@ -40,7 +42,8 @@ def main_menu():
     print(f"{Colors.YELLOW}4.{Colors.END} BATCH CRACKING MODE (Process Hash Files)")
     print(f"{Colors.YELLOW}5.{Colors.END} Advanced Password Strength Analyzer")
     print(f"{Colors.YELLOW}6.{Colors.END} Generate Full Security Audit Report")
-    print(f"{Colors.RED}7. Exit{Colors.END}")
+    print(f"{Colors.YELLOW}7.{Colors.END} Check if Password is LEAKED (HIBP Database)")
+    print(f"{Colors.RED}8. Exit{Colors.END}")
     print(f"{Colors.CYAN}{'='*65}{Colors.END}")
 
 def main():
@@ -49,6 +52,8 @@ def main():
     cracker = PasswordCracker()
     analyzer = PasswordAnalyzer()
     reporter = SecurityReporter()
+    pwned = PwnedChecker()
+
     
     current_results = {
         'analysis': [],
@@ -201,6 +206,23 @@ def main():
             input("\nPress Enter to return...")
 
         elif choice == '7':
+            clear_screen()
+            print(f"{Colors.BLUE}--- Real-World Leak Checker (HIBP) ---{Colors.END}")
+            pw = input("Enter password to check: ")
+            print(f"{Colors.YELLOW}[*] Checking HIBP database...{Colors.END}")
+            res = pwned.check_pwned_status(pw)
+            
+            if "error" in res:
+                print(f"{Colors.RED}[!] {res['error']}{Colors.END}")
+            elif res['found']:
+                print(f"{Colors.RED}{Colors.BOLD}[!!!] SECURITY ALERT: This password was found in {res['count']} data breaches!{Colors.END}")
+                print(f"{Colors.YELLOW}Recommendation: Never use this password again.{Colors.END}")
+            else:
+                print(f"{Colors.GREEN}[+] Good news! This password was not found in any known public data breaches.{Colors.END}")
+            
+            input("\nPress Enter to return...")
+
+        elif choice == '8':
             print(f"{Colors.BOLD}{Colors.YELLOW}Exiting. Stay secure!{Colors.END}")
             break
         else:

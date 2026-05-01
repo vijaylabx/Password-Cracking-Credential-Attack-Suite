@@ -4,6 +4,12 @@
 
 ---
 
+## 🔥 What's New (v1.1)
+*   **HIBP API Integration:** Added a new module to check passwords against billions of leaked credentials in the **Have I Been Pwned** database.
+*   **Improved Security:** Implementation of the **K-Anonymity** model for password checking, ensuring your local passwords are never sent over the internet in plain text or full hash.
+
+---
+
 ## 📌 Use Cases
 
 1.  **Security Auditing:** To evaluate the strength of passwords within your system or organization.
@@ -27,6 +33,8 @@ The primary objective of this suite is to provide a robust platform for evaluati
 *   **Multi-Threaded Cracking:** Utilizes multiple CPU cores to maximize performance and speed up the cracking process.
 *   **Batch Mode:** Capable of processing hundreds of hashes simultaneously from a single file.
 *   **Advanced Password Analyzer:** Calculates password entropy and provides actionable recommendations to improve security.
+*   **Real-World Leak Checker:** Checks if a password has been compromised in known data breaches using the **Have I Been Pwned (HIBP)** API.
+    *   *Technical Note:* Uses the **Range API** with a 5-character SHA-1 prefix for maximum privacy.
 *   **Automated Reporting:** Generates professional security audit reports detailing all activities and findings.
 
 ---
@@ -52,6 +60,7 @@ python suite.py
 *   **Option 4 (Batch Mode):** Upload a file containing `username:hash` pairs for automated bulk cracking.
 *   **Option 5 (Analyzer):** Enter any password to view its security metrics and NIST compliance status.
 *   **Option 6 (Audit Report):** Generate a comprehensive summary of all cracking attempts and analysis performed during the session.
+*   **Option 7 (Leak Checker):** Use the HIBP database to check if a password has ever appeared in a public data breach.
 
 ---
 
