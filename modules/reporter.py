@@ -1,5 +1,6 @@
 import datetime
 import os
+import matplotlib.pyplot as plt
 
 class SecurityReporter:
     def __init__(self, output_dir="reports"):
@@ -8,6 +9,9 @@ class SecurityReporter:
             os.makedirs(output_dir)
 
     def generate_report(self, results, report_name="security_audit.txt"):
+        # 1. Generate the visual chart first
+        chart_path = self.generate_visual_summary(results)
+        
         filepath = os.path.join(self.output_dir, report_name)
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
@@ -20,7 +24,11 @@ class SecurityReporter:
             f.write("1. SUMMARY OF FINDINGS\n")
             f.write("-" * 20 + "\n")
             f.write(f"Total Passwords Analyzed: {len(results.get('analysis', []))}\n")
-            f.write(f"Vulnerable Passwords Found: {results.get('vulnerabilities_count', 0)}\n\n")
+            f.write(f"Vulnerable Passwords Found: {results.get('vulnerabilities_count', 0)}\n")
+            if chart_path:
+                f.write(f"Visual Chart Generated: {chart_path}\n\n")
+            else:
+                f.write("\n")
             
             f.write("2. DETAILED ANALYSIS\n")
             f.write("-" * 20 + "\n")
@@ -52,3 +60,37 @@ class SecurityReporter:
             f.write("- Regularly audit credentials for common dictionary words.\n")
             
         return filepath
+
+    def generate_visual_summary(self, results):
+        """Generates a pie chart of password strength ratings."""
+        analysis = results.get('analysis', [])
+        if not analysis:
+            return None
+            
+        ratings = [item['rating'] for item in analysis]
+        rating_counts = {}
+        for r in ratings:
+            rating_counts[r] = rating_counts.get(r, 0) + 1
+            
+        labels = list(rating_counts.keys())
+        sizes = list(rating_counts.values())
+        
+        # Define professional colors
+        colors_map = {
+            'Very Strong': '#2ecc71',
+            'Strong': '#27ae60',
+            'Medium': '#f1c40f',
+            'Weak': '#e67e22',
+            'Very Weak': '#e74c3c'
+        }
+        colors = [colors_map.get(label, '#3498db') for label in labels]
+        
+        plt.figure(figsize=(10, 6))
+        plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors, shadow=True)
+        plt.title('Password Strength Distribution')
+        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        
+        chart_path = os.path.join(self.output_dir, "audit_visuals.png")
+        plt.savefig(chart_path)
+        plt.close()
+        return chart_path
