@@ -1,0 +1,64 @@
+==================================================
+ PASSWORD SECURITY AUDIT REPORT
+ Generated on: 2026-05-01 16:46:31
+==================================================
+
+1. SUMMARY OF FINDINGS
+--------------------
+Total Passwords Analyzed: 1
+Vulnerable Passwords Found: 1
+
+2. DETAILED ANALYSIS
+--------------------
+Password: vijay
+  Rating: Very Weak
+  Entropy: 23.5 bits
+  Fixes: Increase length to at least 12 characters., Add uppercase letters., Add special characters.
+
+3. CRACKING SIMULATION RESULTS
+------------------------------
+Target Hash: 33e791e3e15e61a2cb169774113fbf58db9c98d90b522c65634a0cb04906cc05
+  Status: SUCCESS
+  Cracked Password: aab9e1de16f38176f86d7a92ba337a8c4b7b2b8c6f4b5d56d7a5c2c7b9e2d9e5
+  Time Taken: 0.0000 seconds
+  Total Attempts: 4
+
+Target Hash: 3e94691ddba4f2b7ff9090769488ddcb36e18d0cef4d2eca70c5c717d90f88fa
+  Status: SUCCESS
+  Cracked Password: e1b2f1b5093ba6bd7ae34e58d03bc718071810f322ba80ab9f4cf5f77cf7d6f1
+  Time Taken: 0.0000 seconds
+  Total Attempts: 4
+
+Target Hash: 9e681630f917327445198eac1ea4a14c57a2092839c7b54c08a8d599c0c52c89
+  Status: FAILED
+  Time Taken: 2.1295 seconds
+  Total Attempts: 1727604
+
+Target Hash: 9e681630f917327445198eac1ea4a14c57a2092839c7b54c08a8d599c0c52c89
+  Status: SUCCESS
+  Cracked Password: vijay
+  Time Taken: 0.0000 seconds
+  Total Attempts: 4
+
+Target Hash: 417b9016c9ace4ff5c24eb028d910c20f2a38cf7807fff140df581799e83717d
+  Status: SUCCESS
+  Cracked Password: kriti
+  Time Taken: 0.0000 seconds
+  Total Attempts: 4
+
+Target Hash: 3e94691ddba4f2b7ff9090769488ddcb36e18d0cef4d2eca70c5c717d90f88fa
+  Status: FAILED
+  Time Taken: 2.1850 seconds
+  Total Attempts: 1727604
+
+Target Hash: 9e681630f917327445198eac1ea4a14c57a2092839c7b54c08a8d599c0c52c89
+  Status: FAILED
+  Time Taken: 2.1549 seconds
+  Total Attempts: 1727604
+
+4. MITIGATION STRATEGIES
+--------------------
+- Implement Multi-Factor Authentication (MFA).
+- Enforce a minimum length of 14 characters.
+- Use modern hashing algorithms (e.g., Argon2 or SHA-512 with salts).
+- Regularly audit credentials for common dictionary words.
