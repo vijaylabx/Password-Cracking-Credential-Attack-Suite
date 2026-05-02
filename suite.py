@@ -32,7 +32,9 @@ def print_header():
     ██╔═══╝ ██╔══██║╚════██║╚════██║██║███╗██║██║   ██║██╔══██╗██║  ██║
     ██║     ██║  ██║███████║███████║╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝
     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
-    {Colors.GREEN}    --- Password Cracking & Credential Attack Suite By Vijay Gi V 1.0 ---{Colors.END}
+    {Colors.GREEN}--- Password Cracking & Credential Attack Suite By Vijay Gi V 1.0 ---{Colors.END}
+    {Colors.GREEN}--- Find Me on Github : https://github.com/vijaylabx ---{Colors.END}
+
     """
     print(header)
 
@@ -74,7 +76,7 @@ def main():
         clear_screen()
         print_header()
         main_menu()
-        choice = input(f"{Colors.BOLD}Select an option (1-7): {Colors.END}")
+        choice = input(f"{Colors.BOLD}Select an option (1-10): {Colors.END}")
 
         if choice == '1':
             clear_screen()
