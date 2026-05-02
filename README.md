@@ -45,13 +45,26 @@ The primary objective of this suite is to provide a robust platform for evaluati
 
 ---
 
-## 🛠️ Usage Guide
+## 🛠️ Installation & Usage Guide
 
 ### 1. Prerequisites
-Ensure you have **Python 3.x** installed on your system. This tool relies on standard Python libraries, so no additional external dependencies are required.
+Ensure you have **Python 3.x** installed on your system.
 
-### 2. Setup
-Download the project folder and open your terminal or command prompt (CMD) in that directory.
+### 2. Installation
+1. Clone or download this repository 
+[text](https://github.com/vijaylabx/Password-Cracking-Credential-Attack-Suite.git).
+
+2. Navigate to the project directory in your terminal or command prompt.
+[test] cd Password-Cracking-Credential-Attack-Suite
+
+3. Install the required Python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   Alternatively, install manually:
+   ```bash
+   pip install requests paramiko matplotlib
+   ```
 
 ### 3. Running the Tool
 Execute the following command to launch the suite:
@@ -69,6 +82,15 @@ python suite.py
 *   **Option 7 (Leak Checker):** Use the HIBP database to check if a password has ever appeared in a public data breach.
 *   **Option 8 (Network Attack):** Perform brute-force simulations on SSH and FTP services.
 *   **Option 9 (Web Auditor):** Audit local web application login forms for credential vulnerabilities.
+
+### 5. Quick Start Example
+1. Install dependencies: `pip install -r requirements.txt`
+2. Run: `python suite.py`
+3. Choose option 1 to generate a wordlist with base words "admin,password".
+4. Choose option 5 to analyze a password like "P@ssw0rd123".
+5. Choose option 7 to check if "password123" is leaked.
+
+**Note:** Network and web features are for educational use in controlled environments only. Unauthorized use is illegal.
 
 ---
 
@@ -88,4 +110,4 @@ This tool is intended strictly for educational use and authorized security testi
 
 ---
 **Developed By:** Vijay Gi
-**Version:** 1.0
+**Version:** 1.1
