@@ -13,6 +13,8 @@
 
 ---
 
+![Demo Image](/images/Demo_imagespng.png)
+
 ## 📌 Use Cases
 
 1.  **Security Auditing:** To evaluate the strength of passwords within your system or organization.
