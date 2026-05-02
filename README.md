@@ -96,9 +96,6 @@ python suite.py
 4. Choose option 5 to analyze a password like "P@ssw0rd123".
 5. Choose option 7 to check if "password123" is leaked.
 
-**Note:** Network and web features are for educational use in controlled environments only. Unauthorized use is illegal.
-
----
 
 ## 📂 Project Structure
 
@@ -111,9 +108,9 @@ python suite.py
 
 ## ⚠️ Disclaimer
 
-**For Educational Purposes Only!**
-This tool is intended strictly for educational use and authorized security testing. Attacking any system without explicit permission is illegal. The developer assumes no liability for any misuse of this software.
+**For Real Hacking Purposes Only!**
+This tool is intended Real Hacking Purposes Only use and authorized security testing. Attacking any system with explicit permission . The developer assumes no liability for any misuse of this software.
 
 ---
-**Developed By:** Vijay Gi
+**Developed By:** Vijaylabx
 **Version:** 1.1
