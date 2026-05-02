@@ -1,0 +1,22 @@
+# Specific Files
+Security_Suite_Presentation.pptx
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Project Specific Data/Reports
+# Un-comment if you want to ignore generated reports/data
+# reports/
+# hashFiles/
+# hashgen/

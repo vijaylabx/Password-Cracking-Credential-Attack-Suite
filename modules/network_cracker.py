@@ -4,6 +4,15 @@ import socket
 import time
 from concurrent.futures import ThreadPoolExecutor
 
+class Colors:
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    BOLD = '\033[1m'
+    END = '\033[0m'
+
 class NetworkCracker:
     """Simulates network-based brute-force attacks for SSH and FTP."""
     
@@ -40,7 +49,7 @@ class NetworkCracker:
                     res = future.result()
                     if res == None: continue
                     if "ERROR" in str(res) or "TIMEOUT" in str(res):
-                        print(f"  {Colors.RED}[!] Issue: {res}{Colors.END}")
+                        print(f"{Colors.RED}[!] Issue: {res}{Colors.END}")
                         continue
                     if res:
                         results["success"] = True

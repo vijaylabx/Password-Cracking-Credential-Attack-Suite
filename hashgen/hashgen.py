@@ -1,7 +1,7 @@
 import hashlib
 
 # Aap yahan apna password/text change kar sakte hain
-text = "1111vijaygumthal"
+text = "vijay12345677##$#$#"
 
 print(f"--- Hashes for: {text} ---")
 
