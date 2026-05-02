@@ -52,10 +52,14 @@ Ensure you have **Python 3.x** installed on your system.
 
 ### 2. Installation
 1. Clone or download this repository 
-[text](https://github.com/vijaylabx/Password-Cracking-Credential-Attack-Suite.git).
-
+```bash
+   https://github.com/vijaylabx/Password-Cracking-Credential-Attack-Suite.git 
+   ```
+   
 2. Navigate to the project directory in your terminal or command prompt.
-[test] cd Password-Cracking-Credential-Attack-Suite
+```bash
+    cd Password-Cracking-Credential-Attack-Suite
+    ```
 
 3. Install the required Python packages:
    ```bash
