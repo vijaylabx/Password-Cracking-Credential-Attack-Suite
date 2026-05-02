@@ -7,6 +7,8 @@
 ## 🔥 What's New (v1.1)
 *   **HIBP API Integration:** Added a new module to check passwords against billions of leaked credentials in the **Have I Been Pwned** database.
 *   **Visual Analytics:** Automated generation of **Pie Charts** for password strength distribution using Matplotlib.
+*   **Network Attack Simulation:** Added brute-force modules for **SSH** and **FTP** services.
+*   **Web Login Security Auditor:** A module for testing and auditing local web-based authentication forms (for educational/lab use).
 *   **Improved Security:** Implementation of the **K-Anonymity** model for password checking, ensuring your local passwords are never sent over the internet in plain text or full hash.
 
 ---
@@ -34,6 +36,8 @@ The primary objective of this suite is to provide a robust platform for evaluati
 *   **Multi-Threaded Cracking:** Utilizes multiple CPU cores to maximize performance and speed up the cracking process.
 *   **Batch Mode:** Capable of processing hundreds of hashes simultaneously from a single file.
 *   **Advanced Password Analyzer:** Calculates password entropy and provides actionable recommendations to improve security.
+*   **Network Attack Simulation:** Capability to test and audit network services like **SSH** and **FTP**.
+*   **Web Form Auditing:** Automated testing of web-based login forms in controlled environments.
 *   **Visual Analytics:** Automatically generates visual summaries (`.png` charts) of security audits.
 *   **Real-World Leak Checker:** Checks if a password has been compromised in known data breaches using the **Have I Been Pwned (HIBP)** API.
     *   *Technical Note:* Uses the **Range API** with a 5-character SHA-1 prefix for maximum privacy.
@@ -63,6 +67,8 @@ python suite.py
 *   **Option 5 (Analyzer):** Enter any password to view its security metrics and NIST compliance status.
 *   **Option 6 (Audit Report):** Generate a comprehensive summary of all cracking attempts and analysis performed during the session.
 *   **Option 7 (Leak Checker):** Use the HIBP database to check if a password has ever appeared in a public data breach.
+*   **Option 8 (Network Attack):** Perform brute-force simulations on SSH and FTP services.
+*   **Option 9 (Web Auditor):** Audit local web application login forms for credential vulnerabilities.
 
 ---
 

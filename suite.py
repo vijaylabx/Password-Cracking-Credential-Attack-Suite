@@ -7,6 +7,8 @@ from modules.cracker import PasswordCracker
 from modules.analyzer import PasswordAnalyzer
 from modules.reporter import SecurityReporter
 from modules.pwned_checker import PwnedChecker
+from modules.network_cracker import NetworkCracker
+from modules.web_auditor import WebAuditor
 
 
 # Colors for Advanced CLI
@@ -43,7 +45,9 @@ def main_menu():
     print(f"{Colors.YELLOW}5.{Colors.END} Advanced Password Strength Analyzer")
     print(f"{Colors.YELLOW}6.{Colors.END} Generate Full Security Audit Report")
     print(f"{Colors.YELLOW}7.{Colors.END} Check if Password is LEAKED (HIBP Database)")
-    print(f"{Colors.RED}8. Exit{Colors.END}")
+    print(f"{Colors.YELLOW}8.{Colors.END} Network Attack Simulation (SSH/FTP)")
+    print(f"{Colors.YELLOW}9.{Colors.END} Web Login Security Auditor (Local Lab)")
+    print(f"{Colors.RED}10. Exit{Colors.END}")
     print(f"{Colors.CYAN}{'='*65}{Colors.END}")
 
 def main():
@@ -53,6 +57,10 @@ def main():
     analyzer = PasswordAnalyzer()
     reporter = SecurityReporter()
     pwned = PwnedChecker()
+    net_cracker = NetworkCracker()
+    web_auditor = WebAuditor()
+
+
 
     
     current_results = {
@@ -223,6 +231,58 @@ def main():
             input("\nPress Enter to return...")
 
         elif choice == '8':
+            clear_screen()
+            print(f"{Colors.BLUE}--- Network Attack Simulation ---{Colors.END}")
+            print("1. SSH Brute-force")
+            print("2. FTP Brute-force")
+            sub_choice = input("Choice: ")
+            
+            host = input("Target Host (IP/Hostname): ")
+            user = input("Username: ")
+            w_path = input("Wordlist path: ")
+            
+            if os.path.exists(w_path):
+                with open(w_path, 'r', errors='ignore') as f:
+                    words = [l.strip() for l in f if l.strip()]
+                
+                if sub_choice == '1':
+                    res = net_cracker.ssh_brute_force(host, user, words)
+                else:
+                    res = net_cracker.ftp_brute_force(host, user, words)
+                
+                if res['success']:
+                    print(f"{Colors.GREEN}\n[!] SUCCESS! {host} Cracked: {res['password']}{Colors.END}")
+                else:
+                    print(f"{Colors.RED}\n[!] FAILED to crack {host}.{Colors.END}")
+            else:
+                print(f"{Colors.RED}[!] Wordlist not found.{Colors.END}")
+            input("\nPress Enter to return...")
+
+        elif choice == '9':
+            clear_screen()
+            print(f"{Colors.BLUE}--- Web Login Security Auditor (Local Lab) ---{Colors.END}")
+            print(f"{Colors.YELLOW}[!] Authorized Testing Only!{Colors.END}")
+            url = input("Login URL (e.g., http://192.168.75.129/login.php): ")
+            user_field = input("Username field name (e.g., 'username' or 'user'): ")
+            pass_field = input("Password field name (e.g., 'password' or 'pass'): ")
+            user = input("Target Username: ")
+            w_path = input("Wordlist path: ")
+            
+            if os.path.exists(w_path):
+                with open(w_path, 'r', errors='ignore') as f:
+                    words = [l.strip() for l in f if l.strip()]
+                
+                res = web_auditor.web_brute_force(url, user_field, pass_field, user, words)
+                
+                if res['success']:
+                    print(f"{Colors.GREEN}\n[!] SUCCESS! Credential Found: {res['password']}{Colors.END}")
+                else:
+                    print(f"{Colors.RED}\n[!] FAILED to find credentials.{Colors.END}")
+            else:
+                print(f"{Colors.RED}[!] Wordlist not found.{Colors.END}")
+            input("\nPress Enter to return...")
+
+        elif choice == '10':
             print(f"{Colors.BOLD}{Colors.YELLOW}Exiting. Stay secure!{Colors.END}")
             break
         else:
